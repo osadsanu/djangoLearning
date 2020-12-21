@@ -11,7 +11,7 @@ def hi (request):
     nums = request.GET.get('numbers')
     if nums == None:
         return HttpResponse("no numbers variable")
-    nums = sorted(nums.split(','))
+    nums = sorted( [int(i) for i in nums.split(',')])
     data = {
         'status': 'ok',
         'data': nums
