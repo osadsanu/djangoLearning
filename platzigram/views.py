@@ -18,3 +18,8 @@ def hi (request):
     }
     print(nums)
     return JsonResponse(data,safe = False)
+
+def validate(request, name, age):
+    if age < 18:
+        return HttpResponse('Not valid Age')
+    return HttpResponse('Name:{0}\t Age:{1}'.format(name,age))
